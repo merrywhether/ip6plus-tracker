@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 from os import system
 from pickle import load, dump
 from re import match
@@ -10,7 +12,7 @@ from monitor import start_monitoring
 HOST = 'store.apple.com'
 PATH_ROOT = '/us/retailStore/availabilitySearch?zip='
 
-def main():
+def start():
     system('clear')
     print '''                                          ...                MMM
                                   .  .,MMMMMMMMMD. .        MMM.
@@ -59,7 +61,7 @@ MMMMM? .. MM=.        .MM .    MMMMM8.. NMMMM:.+MM~       ...   ...  ...MMM.    
 
     mode = get_mode()
     if mode == 4:
-        with open('previous.pickle', 'rb') as f:
+        with open('ip6plus_tracker/previous.pickle', 'rb') as f:
             data = load(f)
 
         zip_code = data['zip_code']
@@ -86,7 +88,7 @@ MMMMM? .. MM=.        .MM .    MMMMM8.. NMMMM:.+MM~       ...   ...  ...MMM.    
         zip_code = get_zip_code()
         target_stores = get_target_stores(zip_code)
         alert_models, beep_models = get_models(mode)
-        with open('previous.pickle', 'wb') as f:
+        with open('ip6plus_tracker/previous.pickle', 'wb') as f:
             dump({'zip_code': zip_code,
                   'target_stores': target_stores,
                   'alert_models': alert_models,
@@ -106,6 +108,3 @@ def get_mode():
             print '\n%s is not a valid mode' % mode
         else:
             return int(mode)
-
-
-if __name__ == '__main__': main()

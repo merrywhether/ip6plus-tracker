@@ -15,7 +15,7 @@ def get_zip_code():
             return zip_code
 
 def get_target_stores(zip_code):
-    from main import HOST, PATH_ROOT
+    from ip6plus_tracker import HOST, PATH_ROOT
 
     connection = HTTPConnection(HOST)
     connection.request("GET", '{root}{zip_code}&parts.0=MG502LL%2FA'.format(root=PATH_ROOT, zip_code=zip_code))

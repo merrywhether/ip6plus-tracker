@@ -8,8 +8,9 @@ from urllib import quote_plus
 
 from models import nice_model_name
 
+
 def start_monitoring(zip_code, target_stores, alert_models, beep_models):
-    from main import HOST
+    from ip6plus_tracker import HOST
 
     path = get_path(zip_code, alert_models + beep_models)
     first_time = True
@@ -64,10 +65,10 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
 
         if first_time:
             first_time = False
-        sleep(60)
+        sleep(30)
 
 def get_path(zip_code, models):
-    from main import PATH_ROOT
+    from ip6plus_tracker import PATH_ROOT
 
     path = PATH_ROOT + zip_code
 

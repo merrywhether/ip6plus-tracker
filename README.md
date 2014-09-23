@@ -17,7 +17,7 @@ It also supports restarting your last search (which is automatically saved).
 To start the program (for those uncomfortable with command line):
 * navigate in Finder to the folder containing the python files
 * open Terminal.app (in /Applications/Utilities or searchable with Spotlight)
-* type 'python ' (without quotes but with the trailing space) and then drag the 'main.py' file into the terminal window (this should auto-input the path to the file)
+* type 'python ' (without quotes but with the trailing space) and then drag the 'run.py' file into the terminal window (this should auto-input the path to the file)
 * hit enter and follow the on-screen prompts
 
 Other notes:

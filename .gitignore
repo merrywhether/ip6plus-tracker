@@ -1,3 +1,5 @@
-*.pyc
-previous.pickle
+dist
+ip6plus_tracker/*.pyc
+ip6plus_tracker/previous.pickle
 .idea
+
