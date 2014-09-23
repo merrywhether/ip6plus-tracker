@@ -64,7 +64,7 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
 
         if first_time:
             first_time = False
-        sleep(10)
+        sleep(60)
 
 def get_path(zip_code, models):
     from main import PATH_ROOT

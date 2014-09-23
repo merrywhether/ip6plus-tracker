@@ -59,7 +59,6 @@ MMMMM? .. MM=.        .MM .    MMMMM8.. NMMMM:.+MM~       ...   ...  ...MMM.    
 
     mode = get_mode()
     if mode == 4:
-        data = None
         with open('previous.pickle', 'rb') as f:
             data = load(f)
 

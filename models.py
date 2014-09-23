@@ -1,3 +1,4 @@
+from collections import OrderedDict
 from re import match
 
 # MGxxxLL/A
@@ -116,92 +117,92 @@ def nice_model_name(model):
     elif short_code in tmobile_models.keys():
         return tmobile_models[short_code]
 
-att_models = {
-    'AL2': '6+ Space Grey 16GB AT&T',
-    'AU2': '6+ Space Grey 64GB AT&T',
-    'AP2': '6+ Space Grey 128GB AT&T',
-    'AM2': '6+ Silver 16GB AT&T',
-    'AV2': '6+ Silver 64GB AT&T',
-    'AQ2': '6+ Silver 128GB AT&T',
-    'AN2': '6+ Gold 16GB AT&T',
-    'AW2': '6+ Gold 64GB AT&T',
-    'AR2': '6+ Gold 128GB AT&T'
-}
+att_models = OrderedDict([
+    ('AL2', '6+ Space Grey 16GB AT&T'),
+    ('AU2', '6+ Space Grey 64GB AT&T'),
+    ('AP2', '6+ Space Grey 128GB AT&T'),
+    ('AM2', '6+ Silver 16GB AT&T'),
+    ('AV2', '6+ Silver 64GB AT&T'),
+    ('AQ2', '6+ Silver 128GB AT&T'),
+    ('AN2', '6+ Gold 16GB AT&T'),
+    ('AW2', '6+ Gold 64GB AT&T'),
+    ('AR2', '6+ Gold 128GB AT&T')
+])
 
-verizon_models = {
-    'CK2': '6+ Space Grey 16GB Verizon',
-    'CR2': '6+ Space Grey 64GB Verizon',
-    'CN2': '6+ Space Grey 128GB Verizon',
-    'CL2': '6+ Silver 16GB Verizon',
-    'CT2': '6+ Silver 64GB Verizon',
-    'CP2': '6+ Silver 128GB Verizon',
-    'CM2': '6+ Gold 16GB Verizon',
-    'CU2': '6+ Gold 64GB Verizon',
-    'CQ2': '6+ Gold 128GB Verizon'
-}
+verizon_models = OrderedDict([
+    ('CK2', '6+ Space Grey 16GB Verizon'),
+    ('CR2', '6+ Space Grey 64GB Verizon'),
+    ('CN2', '6+ Space Grey 128GB Verizon'),
+    ('CL2', '6+ Silver 16GB Verizon'),
+    ('CT2', '6+ Silver 64GB Verizon'),
+    ('CP2', '6+ Silver 128GB Verizon'),
+    ('CM2', '6+ Gold 16GB Verizon'),
+    ('CU2', '6+ Gold 64GB Verizon'),
+    ('CQ2', '6+ Gold 128GB Verizon')
+])
 
-sprint_models = {
-    'CV2': '6+ Space Grey 16GB Sprint',
-    'D22': '6+ Space Grey 64GB Sprint',
-    'CY2': '6+ Space Grey 128GB Sprint',
-    'CW2': '6+ Silver 16GB Sprint',
-    'D32': '6+ Silver 64GB Sprint',
-    'D02': '6+ Silver 128GB Sprint',
-    'CX2': '6+ Gold 16GB Sprint',
-    'D42': '6+ Gold 64GB Sprint',
-    'D12': '6+ Gold 128GB Sprint'
-}
+sprint_models = OrderedDict([
+    ('CV2', '6+ Space Grey 16GB Sprint'),
+    ('D22', '6+ Space Grey 64GB Sprint'),
+    ('CY2', '6+ Space Grey 128GB Sprint'),
+    ('CW2', '6+ Silver 16GB Sprint'),
+    ('D32', '6+ Silver 64GB Sprint'),
+    ('D02', '6+ Silver 128GB Sprint'),
+    ('CX2', '6+ Gold 16GB Sprint'),
+    ('D42', '6+ Gold 64GB Sprint'),
+    ('D12', '6+ Gold 128GB Sprint')
+])
 
-tmobile_models = {
-    'AX2': '6+ Space Grey 16GB T-Mobile',
-    'C52': '6+ Space Grey 64GB T-Mobile',
-    'C22': '6+ Space Grey 128GB T-Mobile',
-    'C02': '6+ Silver 16GB T-Mobile',
-    'C62': '6+ Silver 64GB T-Mobile',
-    'C32': '6+ Silver 128GB T-Mobile',
-    'C12': '6+ Gold 16GB T-Mobile',
-    'C72': '6+ Gold 64GB T-Mobile',
-    'C42': '6+ Gold 128GB T-Mobile'
-}
+tmobile_models = OrderedDict([
+    ('AX2', '6+ Space Grey 16GB T-Mobile'),
+    ('C52', '6+ Space Grey 64GB T-Mobile'),
+    ('C22', '6+ Space Grey 128GB T-Mobile'),
+    ('C02', '6+ Silver 16GB T-Mobile'),
+    ('C62', '6+ Silver 64GB T-Mobile'),
+    ('C32', '6+ Silver 128GB T-Mobile'),
+    ('C12', '6+ Gold 16GB T-Mobile'),
+    ('C72', '6+ Gold 64GB T-Mobile'),
+    ('C42', '6+ Gold 128GB T-Mobile')
+])
 
 all_keys = att_models.keys() + verizon_models.keys() + sprint_models.keys() + tmobile_models.keys()
 
-# if __name__ == '__main__': main()
+# if __name__ == '__main__', main()
 
 
-# {'4P2': 'iPhone 6 Silver 16GB AT&T',
-# '4X2': 'iPhone 6 Silver 64GB AT&T',
-# '4U2': 'iPhone 6 Silver 128GB AT&T',
-# '552': 'iPhone 6 Silver 16GB T-Mobile',
-# '5C2': 'iPhone 6 Silver 64GB T-Mobile',
-# '582': 'iPhone 6 Silver 128GB T-Mobile',
-# '5X2': 'iPhone 6 Silver 16GB Verizon',
-# '642': 'iPhone 6 Silver 64GB Verizon',
-# '612': 'iPhone 6 Silver 128GB Verizon',
-# '6A2': 'iPhone 6 Silver 16GB Sprint',
-# '6H2': 'iPhone 6 Silver 64GB Sprint',
-# '6E2': 'iPhone 6 Silver 128GB Sprint',
-# '4N2': 'iPhone 6 Space Grey 16GB AT&T',
-# '4W2': 'iPhone 6 Space Grey 64GB AT&T',
-# '4R2': 'iPhone 6 Space Grey 128GB AT&T',
-# '542': 'iPhone 6 Space Grey 16GB T-Mobile',
-# '5A2': 'iPhone 6 Space Grey 64GB T-Mobile',
-# '572': 'iPhone 6 Space Grey 128GB T-Mobile',
-# '5W2': 'iPhone 6 Space Grey 16GB Verizon',
-# '632': 'iPhone 6 Space Grey 64GB Verizon',
-# '602': 'iPhone 6 Space Grey 128GB Verizon',
-# '692': 'iPhone 6 Space Grey 16GB Sprint',
-# '6G2': 'iPhone 6 Space Grey 64GB Sprint',
-# '6D2': 'iPhone 6 Space Grey 128GB Sprint',
-# '4Q2': 'iPhone 6 Gold 16GB AT&T',
-# '502': 'iPhone 6 Gold 64GB AT&T',
-# '4V2': 'iPhone 6 Gold 128GB AT&T',
-# '562': 'iPhone 6 Gold 16GB T-Mobile',
-# '5D2': 'iPhone 6 Gold 64GB T-Mobile',
-# '592': 'iPhone 6 Gold 128GB T-Mobile',
-# '5Y2': 'iPhone 6 Gold 16GB Verizon',
-# '652': 'iPhone 6 Gold 64GB Verizon',
-# '622': 'iPhone 6 Gold 128GB Verizon',
-# '6C2': 'iPhone 6 Gold 16GB Sprint',
-# '6J2': 'iPhone 6 Gold 64GB Sprint',
-# '6F2': 'iPhone 6 Gold 128GB Sprint'}
+# {'4P2', 'iPhone 6 Silver 16GB AT&T',
+# '4X2', 'iPhone 6 Silver 64GB AT&T',
+# '4U2', 'iPhone 6 Silver 128GB AT&T',
+# '552', 'iPhone 6 Silver 16GB T-Mobile'),
+# '5C2', 'iPhone 6 Silver 64GB T-Mobile'),
+# '582', 'iPhone 6 Silver 128GB T-Mobile'),
+# '5X2', 'iPhone 6 Silver 16GB Verizon'),
+# '642', 'iPhone 6 Silver 64GB Verizon'),
+# '612', 'iPhone 6 Silver 128GB Verizon'),
+# '6A2', 'iPhone 6 Silver 16GB Sprint'),
+# '6H2', 'iPhone 6 Silver 64GB Sprint'),
+# '6E2', 'iPhone 6 Silver 128GB Sprint'),
+# '4N2', 'iPhone 6 Space Grey 16GB AT&T',
+# '4W2', 'iPhone 6 Space Grey 64GB AT&T',
+# '4R2', 'iPhone 6 Space Grey 128GB AT&T',
+# '542', 'iPhone 6 Space Grey 16GB T-Mobile'),
+# '5A2', 'iPhone 6 Space Grey 64GB T-Mobile'),
+# '572', 'iPhone 6 Space Grey 128GB T-Mobile'),
+# '5W2', 'iPhone 6 Space Grey 16GB Verizon'),
+# '632', 'iPhone 6 Space Grey 64GB Verizon'),
+# '602', 'iPhone 6 Space Grey 128GB Verizon'),
+# '692', 'iPhone 6 Space Grey 16GB Sprint'),
+# '6G2', 'iPhone 6 Space Grey 64GB Sprint'),
+# '6D2', 'iPhone 6 Space Grey 128GB Sprint'),
+# '4Q2', 'iPhone 6 Gold 16GB AT&T',
+# '502', 'iPhone 6 Gold 64GB AT&T',
+# '4V2', 'iPhone 6 Gold 128GB AT&T',
+# '562', 'iPhone 6 Gold 16GB T-Mobile'),
+# '5D2', 'iPhone 6 Gold 64GB T-Mobile'),
+# '592', 'iPhone 6 Gold 128GB T-Mobile'),
+# '5Y2', 'iPhone 6 Gold 16GB Verizon'),
+# '652', 'iPhone 6 Gold 64GB Verizon'),
+# '622', 'iPhone 6 Gold 128GB Verizon'),
+# '6C2', 'iPhone 6 Gold 16GB Sprint'),
+# '6J2', 'iPhone 6 Gold 64GB Sprint'),
+# '6F2', 'iPhone 6 Gold 128GB Sprint'}
