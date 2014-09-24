@@ -23,7 +23,7 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
         print '\nchecking status at %s' % datetime.now().strftime('%X %a %b %d')
 
         connection = HTTPConnection(HOST)
-        connection.request("GET", path)
+        connection.request("GET", path, headers={"Cache-Control" : "no-cache"})
         stores = loads(connection.getresponse().read())['body']['stores']
 
         results = [{'store': store['storeName'], 'models':
