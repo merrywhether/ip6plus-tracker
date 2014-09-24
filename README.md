@@ -2,6 +2,8 @@
 
 This is a Python-based command line tool to allow you track the inventory of iPhone 6+s at your local Apple Store. I can only guarantee that it will run on a Mac (due to the nature of some of the sound events), and it is based entirely on standard-library functionality to ensure the easiest setup for non-developers.
 
+This tool was developed for the MacRumors community, as posted [here](http://forums.macrumors.com/showthread.php?p=19868260#post19868260).
+
 --------
 
 It tracks phones by model number, and it features 2 main modes:
@@ -24,3 +26,7 @@ Other notes:
 * I've made this entirely with vanilla python 2.7, which is built-in to OS X Mountain Lion and OS X Mavericks, so you won't need to download any additional software.
 * The program enters an infinite loop searching for inventory on a regular basis. In order to quit the program at any time, press ctrl-c.
 * To restart, you can press the up arrow (this will show you the previously entered command) in the same terminal window it was previously using and then press enter again.
+
+--------
+
+If you want to track iPhone 6 models, they are listed in the models.py folder in the ip6plus_tracker folder but are currently commented out. If you'd like to enable them, just delete the hashes in front of any you'd like to track.
