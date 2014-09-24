@@ -1,3 +1,4 @@
+from copy import deepcopy
 from datetime import datetime
 from httplib import HTTPConnection
 from itertools import izip
@@ -14,6 +15,8 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
 
     path = get_path(zip_code, alert_models + beep_models)
     first_time = True
+
+    last_results = None
 
     while True:
 
@@ -35,6 +38,7 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
                 if first_time:
                     print '-- %s has no stock of any of the tracked models (will only print once until stock returns)' % result['store']
             else:
+
                 alerts = []
                 beeps = []
                 for model in result['models']:
@@ -60,8 +64,10 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
 
         if alert:
             system('afplay song.m4a')
-        elif beep:
+        elif beep and last_results != results:
             print '\a\a\a\a\a'
+
+        last_results = deepcopy(results)
 
         if first_time:
             first_time = False
