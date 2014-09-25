@@ -37,13 +37,13 @@ def _get_models(type):
     while True:
         models = raw_input('\nEnter the models for which you\'d like a ' + type + '.\n'
                            'Format is a comma-separated list of the 3-digit model short codes\n'
-                           '(e.g. "AL2,AU2,AP2")\n'
+                           '(e.g. "AL2, AU2, AP2" or "al2,au2,ap2")\n'
                            ': ')
 
-        if not match('([a-zA-Z0-9]{3},)*[a-zA-Z0-9]{3}$', models):
+        if not match('([a-zA-Z0-9]{3}, ?)*[a-zA-Z0-9]{3}$', models):
             print '\nThere is a problem with input %s' % models
         else:
-            model_list = models.upper().split(',')
+            model_list = models.replace(' ', '').upper().split(',')
             valid = True
             for model in model_list:
                 if model not in all_keys:

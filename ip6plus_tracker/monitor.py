@@ -3,18 +3,19 @@ from datetime import datetime
 from httplib import HTTPConnection
 from itertools import izip
 from json import loads
-from os import system
+from subprocess import call
+from sys import platform
 from time import sleep
 from urllib import quote_plus
 
 from models import nice_model_name
 
+SONG_PATH = 'ip6plus_tracker/song.mp3'
 
 def start_monitoring(zip_code, target_stores, alert_models, beep_models):
     from ip6plus_tracker import HOST
 
     path = get_path(zip_code, alert_models + beep_models)
-    first_time = True
 
     last_results = None
 
@@ -30,13 +31,18 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
                       [model for model, info in store['partsAvailability'].items() if info['pickupDisplay'] == 'available']}
                    for store in stores if store['storeName'] in target_stores]
 
+        new_results = False
+        if last_results != results:
+            new_results = True
+            last_results = deepcopy(results)
+
         alert = False
         beep = False
 
         for result in results:
             if not result['models']:
-                if first_time:
-                    print '-- %s has no stock of any of the tracked models (will only print once until stock returns)' % result['store']
+                if new_results:
+                    print '-- %s has no more stock of any of the tracked models' % result['store']
             else:
 
                 alerts = []
@@ -63,17 +69,19 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
 
 
         if alert:
-            try:
-                system('afplay song.m4a')
-            except:
-                print '\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a',
-        elif beep and last_results != results:
-            print '\a\a\a\a\a',
+            if platform == 'darwin':
+                call(['afplay', SONG_PATH])
+            elif platform == 'linux2':
+                call(['xdg-open', SONG_PATH])
+            elif platform == 'win32':
+                call(['start', SONG_PATH])
+            else:
+                for i in range(4):
+                    print '\a\a\a\a\a' # fallback to lots of beeps (need sleep to ensure repetition
+                    sleep(1)
+        elif beep and new_results:
+            print '\a\a\a\a\a'
 
-        last_results = deepcopy(results)
-
-        if first_time:
-            first_time = False
         sleep(30)
 
 def get_path(zip_code, models):
