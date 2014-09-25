@@ -63,9 +63,12 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
 
 
         if alert:
-            system('afplay song.m4a')
+            try:
+                system('afplay song.m4a')
+            except:
+                print '\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a',
         elif beep and last_results != results:
-            print '\a\a\a\a\a'
+            print '\a\a\a\a\a',
 
         last_results = deepcopy(results)
 
