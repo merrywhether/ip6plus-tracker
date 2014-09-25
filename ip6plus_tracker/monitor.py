@@ -11,9 +11,10 @@ from urllib import quote_plus
 
 from models import nice_model_name
 
+SONG_FILE = 'song.mp3'
+
 def start_monitoring(zip_code, target_stores, alert_models, beep_models):
     from ip6plus_tracker import HOST, FILE_PATH
-    SONG_PATH = join(FILE_PATH, 'ip6plus_tracker', 'song.mp3')
 
     path = get_path(zip_code, alert_models + beep_models)
 
@@ -70,11 +71,11 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
 
         if alert:
             if platform == 'darwin':
-                call(['afplay', SONG_PATH])
+                call(['afplay', join(FILE_PATH, SONG_FILE)])
             elif platform == 'linux2':
-                call(['xdg-open', SONG_PATH])
+                call(['xdg-open', join(FILE_PATH, SONG_FILE)])
             elif platform == 'win32':
-                call(['start', SONG_PATH])
+                call(['start', join(FILE_PATH, SONG_FILE)])
             else:
                 for i in range(4):
                     print '\a\a\a\a\a' # fallback to lots of beeps (need sleep to ensure repetition
