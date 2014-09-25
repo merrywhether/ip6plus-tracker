@@ -78,7 +78,7 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
                 call(['start', join(FILE_PATH, SONG_FILE)])
             else:
                 for i in range(4):
-                    print '\a\a\a\a\a' # fallback to lots of beeps (need sleep to ensure repetition
+                    print '\a\a\a\a\a' # fallback to lots of beeps (need sleep to ensure repetition)
                     sleep(1)
         elif beep and new_results:
             print '\a\a\a\a\a'
