@@ -3,6 +3,7 @@ from datetime import datetime
 from httplib import HTTPConnection
 from itertools import izip
 from json import loads
+from os.path import join
 from subprocess import call
 from sys import platform
 from time import sleep
@@ -10,10 +11,9 @@ from urllib import quote_plus
 
 from models import nice_model_name
 
-SONG_PATH = 'ip6plus_tracker/song.mp3'
-
 def start_monitoring(zip_code, target_stores, alert_models, beep_models):
-    from ip6plus_tracker import HOST
+    from ip6plus_tracker import HOST, FILE_PATH
+    SONG_PATH = join(FILE_PATH, 'ip6plus_tracker', 'song.mp3')
 
     path = get_path(zip_code, alert_models + beep_models)
 

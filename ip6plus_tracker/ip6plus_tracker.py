@@ -12,6 +12,7 @@ from monitor import start_monitoring
 
 HOST = 'store.apple.com'
 PATH_ROOT = '/us/retailStore/availabilitySearch?zip='
+FILE_PATH = dirname(realpath(__file__))
 
 def start():
     system('clear')
@@ -62,10 +63,8 @@ MMMMM? .. MM=.        .MM .    MMMMM8.. NMMMM:.+MM~       ...   ...  ...MMM.    
 
     mode = get_mode()
 
-    file_path = dirname(realpath(__file__))
-
     if mode == 4:
-        with open(join(file_path, 'previous.pickle'), 'rb') as f:
+        with open(join(FILE_PATH, 'previous.pickle'), 'rb') as f:
             data = load(f)
 
         zip_code = data['zip_code']
@@ -92,7 +91,7 @@ MMMMM? .. MM=.        .MM .    MMMMM8.. NMMMM:.+MM~       ...   ...  ...MMM.    
         zip_code = get_zip_code()
         target_stores = get_target_stores(zip_code)
         alert_models, beep_models = get_models(mode)
-        with open(join(file_path, 'previous.pickle'), 'wb') as f:
+        with open(join(FILE_PATH, 'previous.pickle'), 'wb') as f:
             dump({'zip_code': zip_code,
                   'target_stores': target_stores,
                   'alert_models': alert_models,
