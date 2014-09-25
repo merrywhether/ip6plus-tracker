@@ -1,6 +1,6 @@
 # iPhone 6+ CLI tracking Tool
 
-This is a Python-based command line tool to allow you track the inventory of iPhone 6+s at your local Apple Store. I can only guarantee that it will run on a Mac (due to the nature of some of the sound events), and it is based entirely on standard-library functionality to ensure the easiest setup for non-developers.
+This is a Python-based command line tool to allow you track the inventory of iPhone 6+s at your local Apple Store. I can only guarantee that it will run on a Mac (from testing) but it is designed for cross-platform functionality, and it is based entirely on standard-library functionality to ensure the easiest setup for non-developers.
 
 This tool was developed for the MacRumors community, as posted [here](http://forums.macrumors.com/showthread.php?p=19868260#post19868260).
 
@@ -16,11 +16,14 @@ It also supports restarting your last search (which is automatically saved).
 
 --------
 
-To start the program (for those uncomfortable with command line):
+To start the program on a Mac (for those uncomfortable with command line):
 * navigate in Finder to the folder containing the python files
 * open Terminal.app (in /Applications/Utilities or searchable with Spotlight)
 * drag the 'run.py' file into the terminal window (this should auto-input the path to the file)
 * hit enter and follow the on-screen prompts
+
+For Linux people, the above process is similar (without the drag-and-drop), as run.py is executable.
+I don't really have an Windows-python experience, so I can't offer any advice (maybe 'start /path/to/run.py'?).
 
 Other notes:
 * I've made this entirely with vanilla python 2.7, which is built-in to OS X Mountain Lion and OS X Mavericks, so you won't need to download any additional software.
