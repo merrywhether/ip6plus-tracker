@@ -54,8 +54,7 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
                 if alerts and beeps:
                     alert = True
                     print '\n>>>>>>>>>>>>>>>'
-                    print '-- %s HAS %s IN STOCK! It also has %s.' % (result['store'].upper(),
-                                                                      pretty_list(alerts),
+                    print '-- %s HAS %s IN STOCK! It also has %s.' % (result['store'].upper(), pretty_list(alerts),
                                                                       pretty_list(beeps))
                     print '>>>>>>>>>>>>>>>\n'
 
