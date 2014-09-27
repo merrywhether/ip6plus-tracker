@@ -58,7 +58,7 @@ MMMMM? .. MM=.        .MM .    MMMMM8.. NMMMM:.+MM~       ...   ...  ...MMM.    
                                        ...                               . Z
     '''
 
-    print 'Welcome to the iPhone 6+ CLI tracking tool, from Risto Keravuori (www.risto.io).\n' \
+    print 'Welcome to the iPhone 6+ CLI tracking tool v1.1.2, from Risto Keravuori (www.risto.io).\n' \
           'Please enjoy, and good luck in your search!'
 
     mode = get_mode()
