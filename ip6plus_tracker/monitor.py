@@ -25,7 +25,12 @@ def start_monitoring(zip_code, target_stores, alert_models, beep_models):
         print '\nchecking status at %s' % datetime.now().strftime('%X %a %b %d')
 
         connection = HTTPConnection(HOST)
-        connection.request("GET", path, headers={"Cache-Control" : "no-cache"})
+        try:
+            connection.request("GET", path, headers={"Cache-Control" : "no-cache"})
+        except:
+            print 'Connection error, re-trying in 30 seconds'
+            sleep(30)
+            continue
         stores = loads(connection.getresponse().read())['body']['stores']
 
         results = [{'store': store['storeName'], 'models':
